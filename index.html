@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>The Gazeta Times</title>    
+</head>
+<body>      
+  <div class="App">
+    <header class="Header">The Gazeta Times</header>    
+    <div class="A1" id='A1'>gg</div>
+    <div class="A2" id='A2'>gg</div>
+    <div class="A3" >ghg</div>
+    <div class="A4" >fdfd</div>    
+    <footer class="Footer">{'\u00A9'} Vitalii Doroshenko 2020</footer>    
+  </div> 
+  <script>
+    let News = {
+    title: "TITLE",
+    urlToImage: "https://api.time.com/wp-content/uploads/2019/03/kitten-report.jpg?w=800&quality=85",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    publishedAt: "2020-03-23T16:45:08Z"
+  };
+
+  let News1 = {...News};
+  let News2 = {...News};
+  let News3 = {...News};
+  let News4 = {...News};
+
+  let a1 = document.getElementById('A1');
+  let a2 = document.getElementById('A2');
+
+  fetch('https://newsapi.org/v2/everything?' +
+        'q=software&' +
+        'from=2020-03-23&' +
+        'sortBy=popularity&' +
+        'apiKey=e803736cf3da4d1f95116ad98894af06',
+        {credentials: "same-origin"})
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+  fetch('https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=fa65020783637f29a81de704289519e0',
+        {credentials: "same-origin"})
+  .then(response => { 
+    console.log(response);
+                return response.type;             
+            })
+  .then((data) => {
+    console.log(data);
+  });
+    
+    //a1.innerHTML=News1.title;
+  </script> 
+</body>
+</html>
