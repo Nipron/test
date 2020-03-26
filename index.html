@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>The Gazeta Times</title>    
+</head>
+<body>      
+  <div class="App">
+    <header class="Header">The Gazeta Times</header>    
+    <div id='A1' class="Article">
+      <div id="A1Title" class="Title"></div>
+      <img id="A1Image"></img>
+      <div id="A1Content" class="Content"></div>
+      <div id="A1PublishedAt" class="Date"></div>
+    </div>
+    <div id='A2' class="Article">
+      <div id="A2Title" class="Title"></div>
+      <img id="A2Image"></img>
+      <div id="A2Content" class="Content"></div>
+      <div id="A2PublishedAt" class="Date"></div>
+    </div>
+    <div id='A3' class="Article">
+      <div id="A3Title" class="Title"></div>
+      <img id="A3Image"></img>
+      <div id="A3Content" class="Content"></div>
+      <div id="A3PublishedAt" class="Date"></div>
+    </div>
+    <div id='A4' class="Article">
+      <div id="A4Title" class="Title"></div>
+      <img id="A4Image"></img>
+      <div id="A4Content" class="Content"></div>
+      <div id="A4PublishedAt" class="Date"></div>
+    </div>    
+    <footer class="Footer">&copy; Vitalii Doroshenko 2020</footer>    
+  </div>
+
+  <script>
+
+  let a1Title = document.getElementById('A1Title');
+  let a1Image = document.getElementById('A1Image');
+  let a1Content = document.getElementById('A1Content');
+  let a1Date = document.getElementById('A1PublishedAt');
+
+  let a2Title = document.getElementById('A2Title');
+  let a2Image = document.getElementById('A2Image');
+  let a2Content = document.getElementById('A2Content');
+  let a2Date = document.getElementById('A2PublishedAt');
+
+  let a3Title = document.getElementById('A3Title');
+  let a3Image = document.getElementById('A3Image');
+  let a3Content = document.getElementById('A3Content');
+  let a3Date = document.getElementById('A3PublishedAt');
+
+  let a4Title = document.getElementById('A4Title');
+  let a4Image = document.getElementById('A4Image');
+  let a4Content = document.getElementById('A4Content');
+  let a4Date = document.getElementById('A4PublishedAt');
+
+  let articles = [[a1Title, a1Image, a1Content, a1Date],
+                  [a2Title, a2Image, a2Content, a2Date],
+                  [a3Title, a3Image, a3Content, a3Date],
+                  [a4Title, a4Image, a4Content, a4Date]];
+  
+
+  addNews = (news) => {
+    articles.map((art, index) => {
+      art[0].innerHTML = news[index].title;
+      art[1].src = news[index].urlToImage;
+      art[2].innerHTML = news[index].content;
+      art[3].innerHTML = "Published at: " + news[index].publishedAt;
+    });    
+  }
+
+  fetch('https://newsapi.org/v2/everything?' +
+        'q=software&' +
+        'from=2020-03-23&' +
+        'sortBy=popularity&' +
+        'apiKey=e803736cf3da4d1f95116ad98894af06',
+        {credentials: "same-origin"})
+  .then(response => response.json())
+  .then(json => addNews(json.articles));
+  </script> 
+</body>
+</html>

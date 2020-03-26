@@ -1,0 +1,91 @@
+@font-face {font-family: "Olde English"; 
+  src: url("https://db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.eot"); 
+  src: url("https://db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.eot?#iefix") 
+  format("embedded-opentype"), 
+  url("https:///db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.woff2") 
+  format("woff2"), url("https://db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.woff") 
+  format("woff"), url("https://db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.ttf") 
+  format("truetype"), 
+  url("https://db.onlinewebfonts.com/t/713ad647718093479ef7ba690c320048.svg#Olde English") 
+  format("svg"); }
+
+.App {
+  text-align: center;
+  margin-left: 6vw;
+  margin-right: 6vw;  
+  display: grid;
+  grid-template-areas: 
+  "h h"
+  "a1 a2"
+  "a3 a4"
+  "f f";
+}
+
+.App img {
+  max-height: 10em;
+  float: left;
+  padding: 10px;
+  }
+
+.Header {
+  grid-area: h;
+  font-family: 'Olde English', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 8em;
+  padding: 15px;
+  padding-bottom: 0px;
+}
+
+#A1 {
+  grid-area: a1;
+}
+
+#A2 {
+  grid-area: a2;
+}
+
+#A3 {
+  grid-area: a3;
+}
+
+#A4 {
+  grid-area: a4;
+}
+
+.Article {
+  background-color: white;
+  padding: 1em;
+  position: relative;
+}
+
+.Title {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.4em;
+}
+
+.Content {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  padding: 8px;
+}
+
+.Date {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding: 8px;
+}
+
+.Footer {
+  grid-area: f;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+  color: white;
+  background-color: rgb(45, 45, 45);
+  padding: 8px;
+ }
+
+
+
